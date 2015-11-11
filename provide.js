@@ -1,16 +1,10 @@
 var w=window,
-O=w.Object,Obj=O.create.bind(null,null),
-F=w.Function,FP=F.prototype,
-A=w.Array,AP=A.prototype,
-Slice=FP.call.bind(AP.slice),
-Provide=function(o,m){
- var p=m[0],e=((p in o)?o[p]:(o[p]=Obj()));
- if(m.length>1){return Provide(e,Slice(m,1));};
- return e;
-};
-//Provide(scope,namespace)
-O=F=FP=A=AP=null;
+Obj=w.Object.create.bind(null,null),
+Slice=w.Function.prototype.call.bind(w.Array.prototype.slice),
+Provide=function(a,b){var o=a,m=b,p=m[0],e=((p in o)?o[p]:(o[p]=Obj()));return m.length===0?e:Provide(e,Slice(m,1));};
 
+
+//Provide(scope,namespace)
 /*
 (Provide(w,['a','b','c'])).zz=1;
 Provide=null;
