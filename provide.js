@@ -5,7 +5,7 @@ A=w.Array,AP=A.prototype,
 Slice=FP.call.bind(AP.slice),
 Provide=function(o,m){
  var p=m[0],e=((p in o)?o[p]:(o[p]=Obj()));
- if(m.length>1){return Provide(o,Slice(m,1));};
+ if(m.length>1){return Provide(e,Slice(m,1));};
  return e;
 };
 //Provide(scope,namespace)
